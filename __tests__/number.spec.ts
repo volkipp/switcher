@@ -1,4 +1,5 @@
-import { eq, gt, gte, lt, lte } from '@/switcher'
+import { gt, gte, lt, lte } from '@/switcher/matchers/numbers'
+import { eq } from '@/switcher/matchers/eq'
 
 describe('number conditional checkers', () => {
   test('eq should return true', () => {

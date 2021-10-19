@@ -1,5 +1,5 @@
 import { Checker, CheckerOrValue } from '@/switcher/interfaces/Checker'
-import { eq } from '@/switcher/index'
+import { eq } from '@/switcher/matchers/eq'
 
 /**
  * Checks if a value is a checker function or a raw value

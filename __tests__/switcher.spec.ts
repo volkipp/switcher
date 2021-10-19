@@ -1,5 +1,4 @@
-import { switcher } from '@/switcher'
-import { Switcher } from '@/switcher/interfaces/Switcher'
+import { switcher, Switcher } from '@/switcher'
 
 describe('switcher', () => {
   let getBoolean: Switcher<string, boolean>

@@ -1,7 +1,23 @@
-import { isChecker } from './helpers'
-import { Checker } from './interfaces/Checker'
-import { Result } from './interfaces/Result'
-import { Switcher } from './interfaces/Switcher'
+import { isChecker } from '@/switcher/helpers'
+import { Checker } from '@/switcher/interfaces/Checker'
+import { Result } from '@/switcher/interfaces/Result'
+import { eq } from '@/switcher/matchers/eq'
+
+export interface Switcher<InputType = unknown, OutputType = void>
+  extends Result<InputType, OutputType> {
+  /**
+   * Adds a condition to check against
+   */
+  check(
+    condition: Checker<InputType> | InputType,
+    result: Result<InputType, OutputType> | OutputType
+  ): Switcher<InputType, OutputType>
+
+  /**
+   * Runs if there is no match
+   */
+  noMatch(result: Result<InputType, OutputType> | OutputType): Switcher<InputType, OutputType>
+}
 
 export const switcher = <InputType = unknown, OutputType = void>() => {
   const cond: Array<Checker<InputType> | Result<InputType, OutputType>> = []
@@ -60,3 +76,4 @@ export * from './interfaces/Result'
 export * from './matchers/numbers'
 export * from './matchers/groups'
 export * from './matchers/objects'
+export * from './matchers/eq'
