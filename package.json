@@ -4,10 +4,10 @@
   "version": "0.9.0",
   "description": "A simple, lightweight, functional utility for building clean conditional checks. It makes a great replacement for cumbersome switch statements.",
   "license": "MIT",
-  "main": "dist/index.js",
-  "module": "dist/index.es.js",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
   "files": ["dist"],
-  "types": "dist/index.d.ts",
+  "types": "dist/types/index.d.ts",
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.0",
     "@tsconfig/node14": "^1.0.1",
@@ -27,6 +27,8 @@
     "typescript": "^4.4.4"
   },
   "scripts": {
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "test": "jest",
+    "build": "rollup -c"
   }
 }

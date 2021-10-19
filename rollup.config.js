@@ -8,11 +8,13 @@ export default {
       file: pkg.main,
       format: 'cjs',
       compact: true,
+      sourcemap: true,
     },
     {
       file: pkg.module,
       format: 'es',
       compact: true,
+      sourcemap: true,
     },
   ],
 
