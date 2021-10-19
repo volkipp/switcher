@@ -9,7 +9,7 @@ export interface Switcher<InputType = unknown, OutputType = void>
   check(
     condition: Checker<InputType> | InputType,
     result: Result<InputType, OutputType> | OutputType
-  ): Switcher<InputType, OutputType | undefined>
+  ): Switcher<InputType, OutputType>
 
   /**
    * Runs if there is no match

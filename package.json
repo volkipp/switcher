@@ -1,10 +1,10 @@
 {
   "name": "switcher",
-  "version": "1.0.0",
+  "version": "0.9.0",
   "main": "index.js",
   "license": "MIT",
-  "private": true,
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.0",
     "@tsconfig/node14": "^1.0.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.9",
@@ -15,9 +15,11 @@
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.1.0",
     "prettier": "^2.3.2",
+    "rollup": "^2.58.0",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
-    "typescript": "^4.4.2"
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.4"
   },
   "scripts": {
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx"

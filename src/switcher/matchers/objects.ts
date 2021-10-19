@@ -1,4 +1,5 @@
-import { asChecker, Checker } from '.'
+import { Checker } from '@/switcher/interfaces/Checker'
+import { asChecker } from '@/switcher/helpers'
 
 /**
  * Checks if an object both has a key defined AND it's value is not undefined

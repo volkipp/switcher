@@ -1,4 +1,5 @@
-import { Checker, convertToCheckers, CheckerOrValue } from './interfaces/Checker'
+import { convertToCheckers } from '@/switcher/helpers'
+import { Checker, CheckerOrValue } from '@/switcher/interfaces/Checker'
 
 export const all = <T>(...args: Checker<T>[]) => {
   const handler: Checker<T> = (val: T) => {

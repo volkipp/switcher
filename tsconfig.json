@@ -2,7 +2,6 @@
   "extends": "@tsconfig/node14/tsconfig.json",
   "compilerOptions": {
     "sourceMap": true,
-    "resolveJsonModule": true,
     "allowSyntheticDefaultImports": true,
     "allowJs": true,
     "baseUrl": "./",
@@ -18,13 +17,13 @@
   ],
   "include": [
     "./**/*.ts",
-    "./**/*.js",
-    "./**/*.json"
+    "./**/*.js"
   ],
   "exclude": [
     "node_modules/**/*",
     ".webpack/**/*",
     "_warmup/**/*",
-    ".vscode/**/*"
+    ".vscode/**/*",
+    "dist/**/*"
   ]
 }
