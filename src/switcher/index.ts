@@ -1,17 +1,28 @@
 import { isChecker } from './helpers'
 import { Checker } from './interfaces/Checker'
 import { Result } from './interfaces/Result'
-import { Switcher } from './interfaces/Switcher'
+import { eq } from './matchers/eq'
 
-export const eq =
-  <T, K extends unknown>(v: T) =>
-  (i: K) =>
-    i === v
+export interface Switcher<InputType = unknown, OutputType = void>
+  extends Result<InputType, OutputType> {
+  /**
+   * Adds a condition to check against
+   */
+  check(
+    condition: Checker<InputType> | InputType,
+    result: Result<InputType, OutputType> | OutputType
+  ): Switcher<InputType, OutputType>
+
+  /**
+   * Runs if there is no match
+   */
+  noMatch(result: Result<InputType, OutputType> | OutputType): Switcher<InputType, OutputType>
+}
 
 export const switcher = <InputType = unknown, OutputType = void>() => {
   const cond: Array<Checker<InputType> | Result<InputType, OutputType>> = []
 
-  /** The function which runs when there is no match */
+  // The function which runs when there is no match
   let final: Result<InputType, OutputType> | undefined = undefined
 
   // Make the context a function so the output of switcher is callable.
@@ -21,7 +32,7 @@ export const switcher = <InputType = unknown, OutputType = void>() => {
         return (cond[i + 1] as Result<InputType, OutputType>)(value)
       }
     }
-    if (final && typeof final === 'function') {
+    if (typeof final === 'function') {
       return final(value)
     }
   }
@@ -57,11 +68,12 @@ export const switcher = <InputType = unknown, OutputType = void>() => {
 
   ctx.check = check
   ctx.noMatch = noMatch
-  return ctx as Switcher<InputType, OutputType>
+  return ctx
 }
 
 export * from './interfaces/Checker'
 export * from './interfaces/Result'
-export * from './numbers'
-export * from './groups'
-export * from './objects'
+export * from './matchers/numbers'
+export * from './matchers/groups'
+export * from './matchers/objects'
+export * from './matchers/eq'

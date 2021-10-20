@@ -1,4 +1,5 @@
-import { hasKey, hasValue, prop, eq } from '@/switcher'
+import { hasKey, hasValue, prop } from '@/switcher/matchers/objects'
+import { eq } from '@/switcher/matchers/eq'
 
 describe('object conditional checkers', () => {
   const testObj = {

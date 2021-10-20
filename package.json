@@ -1,10 +1,30 @@
 {
   "name": "switcher",
-  "version": "1.0.0",
-  "main": "index.js",
+  "author": {
+    "name": "Kipp Ashford",
+    "email": "kipp@ashfo.co"
+  },
+  "version": "0.9.0",
+  "description": "A simple, lightweight, functional utility for building clean conditional checks. It makes a great replacement for cumbersome switch statements.",
   "license": "MIT",
-  "private": true,
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
+  "unpkg": "dist/index.min.js",
+  "exports": {
+    "require": "./dist/cjs/index.js",
+    "import": "./dist/esm/index.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/volkipp/switcher.git"
+  },
+  "files": [
+    "/src",
+    "/dist"
+  ],
+  "types": "./dist/types/index.d.ts",
   "devDependencies": {
+    "@rollup/plugin-typescript": "^8.3.0",
     "@tsconfig/node14": "^1.0.1",
     "@types/jest": "^27.0.1",
     "@types/node": "^16.7.9",
@@ -15,11 +35,16 @@
     "eslint-plugin-prettier": "^4.0.0",
     "jest": "^27.1.0",
     "prettier": "^2.3.2",
+    "rollup": "^2.58.0",
+    "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
-    "typescript": "^4.4.2"
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.4"
   },
   "scripts": {
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "test": "jest",
+    "build": "rollup -c"
   }
 }
