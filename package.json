@@ -4,10 +4,14 @@
   "version": "0.9.0",
   "description": "A simple, lightweight, functional utility for building clean conditional checks. It makes a great replacement for cumbersome switch statements.",
   "license": "MIT",
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.mjs",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "exports": {
+    "require": "./dist/cjs/index.js",
+    "import": "./dist/esm/index.js"
+  },
   "files": ["dist"],
-  "types": "dist/types/index.d.ts",
+  "types": "./dist/types/index.d.ts",
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.0",
     "@tsconfig/node14": "^1.0.1",

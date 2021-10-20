@@ -1,7 +1,7 @@
-import { isChecker } from '@/switcher/helpers'
-import { Checker } from '@/switcher/interfaces/Checker'
-import { Result } from '@/switcher/interfaces/Result'
-import { eq } from '@/switcher/matchers/eq'
+import { isChecker } from './helpers'
+import { Checker } from './interfaces/Checker'
+import { Result } from './interfaces/Result'
+import { eq } from './matchers/eq'
 
 export interface Switcher<InputType = unknown, OutputType = void>
   extends Result<InputType, OutputType> {
