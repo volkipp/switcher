@@ -1,4 +1,6 @@
 import typescript from '@rollup/plugin-typescript'
+import { terser } from 'rollup-plugin-terser'
+
 import pkg from './package.json'
 
 export default {
@@ -18,5 +20,11 @@ export default {
     },
   ],
 
-  plugins: [typescript()],
+  plugins: [
+    typescript({
+      declaration: true,
+      tsconfig: './tsconfig.json',
+    }),
+    terser(),
+  ],
 }

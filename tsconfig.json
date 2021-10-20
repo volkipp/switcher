@@ -1,12 +1,16 @@
 {
   "extends": "@tsconfig/node14/tsconfig.json",
   "compilerOptions": {
+    "rootDir": "./src",
     "sourceMap": true,
     "allowSyntheticDefaultImports": true,
     "declaration": true,
-    "declarationDir": "./dist/types",
+    "declarationDir": ".",
     "allowJs": true,
+    "strict": true,
+    "esModuleInterop": false,
     "baseUrl": "./",
+    "outDir": "types",
     "paths": {
       "@/*": [
         "./src/*"
@@ -18,16 +22,15 @@
     "src/@types"
   ],
   "include": [
-    "./**/*.ts",
-    "./**/*.js"
+    "src/**/*.ts",
+    "src/**/*.js"
   ],
   "exclude": [
     "node_modules/**/*",
     ".webpack/**/*",
     "_warmup/**/*",
     ".vscode/**/*",
-    "dist/cjs/**/*",
-    "dist/esm/**/*",
+    "dist",
     "__tests__/**/*"
   ]
 }

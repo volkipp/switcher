@@ -5,12 +5,14 @@
   "description": "A simple, lightweight, functional utility for building clean conditional checks. It makes a great replacement for cumbersome switch statements.",
   "license": "MIT",
   "main": "./dist/cjs/index.js",
-  "module": "./dist/esm/index.js",
+  "module": "./dist/esm/index.mjs",
   "exports": {
     "require": "./dist/cjs/index.js",
-    "import": "./dist/esm/index.js"
+    "import": "./dist/esm/index.mjs"
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "types": "./dist/types/index.d.ts",
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.0",
@@ -25,6 +27,7 @@
     "jest": "^27.1.0",
     "prettier": "^2.3.2",
     "rollup": "^2.58.0",
+    "rollup-plugin-terser": "^7.0.2",
     "ts-jest": "^27.0.5",
     "ts-node": "^10.2.1",
     "tslib": "^2.3.1",
