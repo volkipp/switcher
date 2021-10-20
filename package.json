@@ -1,10 +1,10 @@
 {
-  "name": "switcher",
+  "name": "switcher-map",
   "author": {
     "name": "Kipp Ashford",
     "email": "kipp@ashfo.co"
   },
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "A simple, lightweight, functional utility for building clean conditional checks. It makes a great replacement for cumbersome switch statements.",
   "license": "MIT",
   "main": "dist/cjs/index.js",
@@ -22,7 +22,7 @@
     "/src",
     "/dist"
   ],
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/index.d.ts",
   "devDependencies": {
     "@rollup/plugin-typescript": "^8.3.0",
     "@tsconfig/node14": "^1.0.1",
