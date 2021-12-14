@@ -63,6 +63,50 @@ console.log(convertNumber(3)) // prints "no match"
 
 
 
+## Other examples
+
+Although switcher works well to convert or map values, you do not need to return a value. You can simply have switcher call methods when certain conditions are met. You can also break up your code across multiple functions, and even multiple files.
+
+```typescript
+import { switcher } from 'switcher-map'
+
+const enum State {
+  Pending = 'pending'
+  Complete = 'complete'
+}
+
+interface Context {
+  state: State
+  message: string
+}
+
+const onPending = (context: Context) => {
+  console.log("State is pending: " + context.message)
+}
+
+const onComplete = (context: Context) => {
+  console.log("State is complete: " + context.message)
+}
+
+const run = switcher<Context, void>()
+	.check((context) => context.state === State.Pending, onPending)
+	.check((context) => context.state === State.Complete, onComplete)
+
+run({ state: State.Pending, message: 'working'}) // logs: "State is pending: working"
+run({ state: State.Complete, message: 'All done!'}) // logs: "State is complete: All done!"
+
+// Or, the same as above with a checker utility method:
+const stateEq = (state: State) => (context: Context) => context.state === state
+const runWithHelper = switcher<Context, void>()
+	.check(stateEq(State.Pending), onPending)
+	.check(stateEq(State.Complete), onComplete)
+
+```
+
+
+
+
+
 ## Checker Utility Methods
 
 Switcher uses a functional approach. The `eq()` helper is very simple behind the scenes:
